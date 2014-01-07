@@ -13,7 +13,7 @@ function fwDirectory(page)
 		dbase:ShowCloseButton(false)
 		dbase:MakePopup()
 	
-		inim:SetImage("VGUI/directory_resized.png")
+		inim:SetImage( "VGUI/FW_menu/directory_resized.png" )
 		inim:SetPos(0, 25)
 		inim:SetSize(1050, 670)
 
@@ -59,7 +59,7 @@ function fwDirectory(page)
 		dbase:ShowCloseButton(false)
 		dbase:MakePopup()
 	
-		inim:SetImage("VGUI/directory_resized.png")
+		inim:SetImage( "VGUI/directory_resized.png" )
 		inim:SetPos(0, 25)
 		inim:SetSize(1050, 670)
 
