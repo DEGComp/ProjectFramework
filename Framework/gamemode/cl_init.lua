@@ -63,4 +63,4 @@ function fwMenuDerma(ply)
 		draw.RoundedBox(4, 0, 0, w, h, Color(255, 255, 255, 120))
 	end
 end
-usermessage.Hook("FW_menu_open", fwMenuDerma)
+usermessage.Hook("fw_menu_open", fwMenuDerma)
