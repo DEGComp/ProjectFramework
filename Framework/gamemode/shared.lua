@@ -1,6 +1,12 @@
-GM.Name = "Project framework"
-GM.Author = "Serconker | Reikelt | Frenjo"
-GM.Email = "serconker@felthatters.net"
-GM.Website = "http://serconker.felthatters.net | http://deencryptiongaming.org/"
-DEFINE_BASECLASS( "gamemode_base" )
-DeriveGamemode( "sandbox" )
+DeriveGamemode("sandbox")
+
+GM.Name = "Project Framework"
+GM.Author = "Frenjo | Serconker | Riekelt"
+GM.Email = ""
+GM.Website = "http://deencryptiongaming.org/"
+
+function GM:Initialize()
+	print("Framework shared initializing...")
+	
+	self.BaseClass:Initialize()
+end
