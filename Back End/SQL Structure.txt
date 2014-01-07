@@ -1,0 +1,19 @@
+Framework SQL Structure:
+
+Tables:
+players
+characters
+
+Fields(Players):
+id
+steamName
+steamID
+ip
+userLevel
+
+Fields(Characters):
+id
+name
+faction
+inventory
+flags
