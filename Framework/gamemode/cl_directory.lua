@@ -1,4 +1,4 @@
-function FW_Directory(page)
+function fwDirectory(page)
 	if(page==nil)then
 		local commands = {}
 		local dbase = vgui.Create("DFrame")
@@ -13,7 +13,7 @@ function FW_Directory(page)
 		dbase:ShowCloseButton(false)
 		dbase:MakePopup()
 	
-		inim:SetImage( "VGUI/FW_menu/directory_resized.png" )
+		inim:SetImage("VGUI/FW_menu/directory_resized.png")
 		inim:SetPos(0, 25)
 		inim:SetSize(1050, 670)
 
@@ -59,7 +59,7 @@ function FW_Directory(page)
 		dbase:ShowCloseButton(false)
 		dbase:MakePopup()
 	
-		inim:SetImage( "VGUI/FW_menu/directory_resized.png" )
+		inim:SetImage("VGUI/FW_menu/directory_resized.png")
 		inim:SetPos(0, 25)
 		inim:SetSize(1050, 670)
 
