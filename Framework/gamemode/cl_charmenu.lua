@@ -15,7 +15,7 @@ function fwCharmenu(ply)
 	model:SetSize( 500,  500 )
 	model:SetCamPos( Vector( 90,  0,  0) )
 	model:SetLookAt( Vector( 0,  0,  20 ))
-	model:SetPos(ScrW()/2-250, ScrH()/2-250)
+	model:SetPos(ScrW() / 2 - 250, ScrH() / 2 - 250)
 	
 	close:SetParent(base)
 	close:SetText("Close menu")
