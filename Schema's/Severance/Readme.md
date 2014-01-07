@@ -1,0 +1,1 @@
+Zombie-based Apocalypse RP. Custom map possible, not sure. Better admin functionality, and different types of Zombies.
