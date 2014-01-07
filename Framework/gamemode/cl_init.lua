@@ -4,6 +4,7 @@ include("cl_directory.lua")
 
 function GM:Initialize()
 	print("Framework clientside initializing...")
+	
 	self.BaseClass:Initialize()
 end
 
