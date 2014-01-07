@@ -1,8 +1,8 @@
 DeriveGamemode("sandbox")
 
 GM.Name = "Project Framework"
-GM.Author = "Frenjo | Serconker | Riekelt"
-GM.Email = ""
+GM.Author = "Jake | Frenjo | Serconker | Riekelt"
+GM.Email = "visiongamingjake@hotmail.com"
 GM.Website = "http://deencryptiongaming.org/ & http://serconker.felthatters.net/"
 
 function GM:Initialize()
