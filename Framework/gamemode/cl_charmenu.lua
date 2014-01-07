@@ -24,9 +24,11 @@ function fwCharmenu(ply)
 	close.DoClick = function()
 		base:Close()
 	end
+	
 	function base:Paint(w,h)
 		draw.RoundedBox(0,0,0,w,h,Color(20,20,20,220))
 	end
+	
 	function close:Paint(w,h)
 		draw.RoundedBox(0,0,0,w,h,Color(20,20,20,0))
 	end

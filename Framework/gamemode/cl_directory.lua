@@ -25,6 +25,7 @@ function FW_Directory(page)
 			dbase:Close()
 			FW_Directory(1)
 		end
+		
 		close:SetPos(80,593)
 		close:SetFont("default")
 		close:SetText("")
@@ -32,12 +33,15 @@ function FW_Directory(page)
 		close.DoClick = function()
 			dbase:Close()
 		end
+		
 		function info.Paint(w,h)
 			draw.SimpleText("Infomation","Trebuchet24",0,0,Color(100,60,40,255))
 		end
+		
 		function dbase:Paint(w,h)
 			draw.RoundedBox(0,0,0,w,h,Color(20,20,20,0))
 		end
+		
 		function close:Paint(w,h)
 			draw.RoundedBox(0,0,0,w,h,Color(20,20,20,60))
 		end
@@ -67,6 +71,7 @@ function FW_Directory(page)
 			dbase:Close()
 			FW_Directory(1)
 		end
+		
 		close:SetPos(80,593)
 		close:SetFont("default")
 		close:SetText("")
@@ -74,12 +79,15 @@ function FW_Directory(page)
 		close.DoClick = function()
 			dbase:Close()
 		end
+		
 		function info.Paint(w,h)
 			draw.SimpleText("Infomation","Trebuchet24",0,0,Color(100,60,40,255))
 		end
+		
 		function dbase:Paint(w,h)
 			draw.RoundedBox(0,0,0,w,h,Color(20,20,20,0))
 		end
+		
 		function close:Paint(w,h)
 			draw.RoundedBox(0,0,0,w,h,Color(20,20,20,60))
 		end
