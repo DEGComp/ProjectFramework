@@ -12,3 +12,5 @@ Failing to adhere to these rights, will cause into a complete termination of you
 Future updates may change the name of this framework. These names may be, but are not limited to: Trion Framework, BlueBox, and other.
 
 When this project is changed, or canceled, De-Encryption Gaming retains all rights, and must be honored.
+
+P.S: Currently, no releases are being made, and will not be for the coming few months. Pull requests will be actively Denied.
