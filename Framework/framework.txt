@@ -1,0 +1,11 @@
+"framework"
+{
+	"base"		"sandbox"
+	"title"		"FrameWork base"
+	"maps"		"^fw_"
+	"menusystem"	"1"
+	"settings"
+	{
+
+	}
+}
