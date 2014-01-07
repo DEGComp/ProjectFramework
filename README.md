@@ -1,4 +1,4 @@
-ProjectFramework
+﻿ProjectFramework
 ================
 
 Public Repo of Project Framework. © all rights included, 2013-2014.
@@ -10,3 +10,5 @@ This project may be used by anyone willing to start, but all rights must be give
 Failing to adhere to these rights, will cause into a complete termination of your file access, and a possible lawsuit.
 
 Future updates may change the name of this framework. These names may be, but are not limited to: Trion Framework, BlueBox, and other.
+
+When this project is changed, or declined, De-Encryption Gaming retains all rights, more explained of this in the License.
