@@ -36,7 +36,7 @@ function fwMenuDerma(ply)
 	chars.DoClick = function()
 		chat.AddText(Color(40, 40, 60), "Char menu will now appear, maybe?")
 		base:Close()
-		FW_Charmenu(ply)
+		fwCharMenu(ply)
 	end
 
 	directory:SetParent(base)
@@ -44,7 +44,7 @@ function fwMenuDerma(ply)
 	directory:SetSize(150, 20)
 	directory:SetPos(100, 175)
 	directory.DoClick = function()
-		FW_Directory()
+		fwDirectory()
 	end
 
 	function base:Paint(w, h)

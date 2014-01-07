@@ -23,7 +23,7 @@ function fwDirectory(page)
 		info:SetSize(150, 50)
 		info.DoClick = function()
 			dbase:Close()
-			FW_Directory(1)
+			fwDirectory(1)
 		end
 		
 		close:SetPos(80, 593)
