@@ -1,7 +1,7 @@
 "framework"
 {
 	"base"		"sandbox"
-	"title"		"FrameWork base"
+	"title"		"Framework"
 	"maps"		"^fw_"
 	"menusystem"	"1"
 	"settings"
