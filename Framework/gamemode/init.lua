@@ -7,6 +7,7 @@ include("shared.lua")
 
 function GM:Initialize()
 	print("Framework serverside initializing...")
+	
 	self.BaseClass:Initialize()
 end
 
