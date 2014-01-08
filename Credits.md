@@ -4,12 +4,12 @@ Riekelt Brands - Lead Developer
 
 Calum Moore - Developer
 
-Connor Elmore - Developer
+Michael Search - Developer
 
 Connor Day - Developer
 
 (Name yet to be received) - Digital Artist, creator of all digital content
 
-(Name yet to be received) - Mapper, creator of all Hammer assorted products
+Connor Elmore - Mapper, creator of all Hammer assorted products
 
 Adam Reszel - Creator of Framework name
