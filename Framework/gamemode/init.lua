@@ -14,3 +14,8 @@ function GM:Initialize()
 	
 	self.BaseClass:Initialize()
 end
+
+function GM:ShowSpare2(ply)
+	umsg.Start("fw_menu_open", ply)
+	umsg.End()
+end
