@@ -1,11 +1,21 @@
 include("shared.lua")
-include("cl_charmenu.lua")
-include("cl_directory.lua")
+include("framework/framework/derma/cl_character.lua")
+include("framework/framework/derma/cl_directory.lua")
 
 function GM:Initialize()
 	print("Framework clientside initializing...")
 	
 	self.BaseClass:Initialize()
+end
+
+function GM:HUDShouldDraw(name)
+	for k, v in pairs({"CHudHealth", "CHudBattery", "CHudAmmo", "CHudSecondaryAmmo"}) do
+		if(v == name) then
+			return false
+		else
+			return true
+		end
+	end
 end
 
 function fwMenuDerma(ply)

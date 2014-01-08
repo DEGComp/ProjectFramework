@@ -1,15 +1,16 @@
 AddCSLuaFile("cl_init.lua")
-AddCSLuaFile("sh_init.lua")
 AddCSLuaFile("shared.lua")
-AddCSLuaFile("cl_charmenu.lua")
-AddCSLuaFile("cl_directory.lua")
+AddCSLuaFile("framework/framework/cl_kernel.lua")
+AddCSLuaFile("framework/framework/sh_kernel.lua")
+AddCSLuaFile("framework/framework/derma/cl_character.lua")
+AddCSLuaFile("framework/framework/derma/cl_directory.lua")
 
-include("sv_init.lua")
-include("sh_init.lua")
 include("shared.lua")
+include("framework/framework/sv_kernel.lua")
+include("framework/framework/sh_kernel.lua")
 
 function GM:Initialize()
-	print("Framework serverside initializing...")
+	print("Framework kernel serverside initializing...")
 	
 	self.BaseClass:Initialize()
 end
