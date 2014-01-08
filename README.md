@@ -9,7 +9,7 @@ This project may be used by anyone willing to start, but all rights must be give
 
 Failing to adhere to these rights, will cause into a complete termination of your file access, and a possible lawsuit.
 
-Future updates may change the name of this framework. These names may be, but are not limited to: Trion Framework, BlueBox, and other.
+The name of this project is currently depicted as 'CrystalBlue', this is subject to change.
 
 When this project is changed, or canceled, De-Encryption Gaming retains all rights, and must be honored.
 
