@@ -1,4 +1,5 @@
 include("shared.lua")
+include("framework/framework/cl_kernel.lua")
 include("framework/framework/derma/cl_character.lua")
 include("framework/framework/derma/cl_directory.lua")
 

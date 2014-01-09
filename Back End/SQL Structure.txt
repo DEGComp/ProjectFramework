@@ -10,6 +10,7 @@ steamName
 steamID
 ip
 userLevel
+whitelisted
 
 Fields(Characters):
 id

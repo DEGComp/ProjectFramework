@@ -1,5 +1,7 @@
 DeriveGamemode("sandbox")
 
+include("framework/framework/sh_kernel.lua")
+
 GM.Name = "Project Framework"
 GM.Author = "Jake | Frenjo | Serconker | Riekelt"
 GM.Email = "visiongamingjake@hotmail.com"
