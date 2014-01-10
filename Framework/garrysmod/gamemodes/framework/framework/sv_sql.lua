@@ -33,7 +33,7 @@ function DATABASE:onConnected()
 	local CharacterTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Characters(ID INT NOT NULL AUTO_INCREMENT, Name TEXT, Faction TEXT, Inventory TEXT, Flags TEXT, PRIMARY KEY (ID));");
 	CharacterTable:start();
 
-	local ItemTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Items(ID INT NOT NULL AUTO_INCREMENT, Name TEXT, Inventory TEXT);");
+	local ItemTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Items(ID INT NOT NULL AUTO_INCREMENT, Name TEXT, Inventory TEXT, PRIMARY KEY (ID));");
 	ItemTable:start();
 	
 	function PlayerTable:onSuccess(data)
@@ -61,9 +61,9 @@ function DATABASE:onConnected()
 	end
 	
 	function ItemTable:onError(err, sql)
-		ErrorNoHalt("[Framework] CRITICAL ERROR (2): Failed to verify table!\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (2): " .. err .. "\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (2): " .. sql .. "\n");
+		ErrorNoHalt("[Framework] CRITICAL ERROR (4): Failed to verify table!\n");
+		ErrorNoHalt("[Framework] CRITICAL ERROR (4): " .. err .. "\n");
+		ErrorNoHalt("[Framework] CRITICAL ERROR (4): " .. sql .. "\n");
 	end
 end
 
