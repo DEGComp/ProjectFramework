@@ -41,9 +41,9 @@ function DATABASE:onConnected()
 	end
 	
 	function PlayerTable:onError(err, sql)
-		ErrorNoHalt("[Framework] CRITICAL ERROR (2): Failed to verify table!\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (2): " .. err .. "\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (2): " .. sql .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (2): Failed to verify table!\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (2): " .. err .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (2): " .. sql .. "\n");
 	end
 	
 	function CharacterTable:onSuccess(data)
@@ -51,9 +51,9 @@ function DATABASE:onConnected()
 	end
 	
 	function CharacterTable:onError(err, sql)
-		ErrorNoHalt("[Framework] CRITICAL ERROR (3): Failed to verify table!\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (3): " .. err .. "\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (3): " .. sql .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (3): Failed to verify table!\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (3): " .. err .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (3): " .. sql .. "\n");
 	end
 	
 	function ItemTable:onSuccess(data)
@@ -61,17 +61,17 @@ function DATABASE:onConnected()
 	end
 	
 	function ItemTable:onError(err, sql)
-		ErrorNoHalt("[Framework] CRITICAL ERROR (4): Failed to verify table!\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (4): " .. err .. "\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (4): " .. sql .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (4): Failed to verify table!\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (4): " .. err .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (4): " .. sql .. "\n");
 	end
 end
 
 //This runs if there's a problem with the entered
 //config data.
 function DATABASE:onConnectionFailed(err)
-	ErrorNoHalt("[Framework] CRITICAL ERROR (1): Failed to connect to database!\n");
-	ErrorNoHalt("[Framework] CRITICAL ERROR (1): " .. err .. "\n");
+	ErrorNoHalt("[Framework]: CRITICAL ERROR (1): Failed to connect to database!\n");
+	ErrorNoHalt("[Framework]: CRITICAL ERROR (1): " .. err .. "\n");
 end
 
 //This runs every time 
@@ -97,9 +97,9 @@ function FirstJoin(ply, steamID, uID)
 	end
 	
 	function PlayerCheck:onError(err, sql)
-		ErrorNoHalt("[Framework] CRITICAL ERROR (4): Failed to verify playerdata!\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (4): " .. err .. "\n");
-		ErrorNoHalt("[Framework] CRITICAL ERROR (4): " .. sql .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (5): Failed to verify playerdata!\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (5): " .. err .. "\n");
+		ErrorNoHalt("[Framework]: CRITICAL ERROR (5): " .. sql .. "\n");
 	end
 end
 hook.Add("PlayerAuthed", "FirstJoin", FirstJoin);
