@@ -5,7 +5,7 @@
 */
 
 DATABASE_HOST = "localhost";
-DATABASE_USER = "username";
-DATABASE_PASS = "password";
-DATABASE_NAME = "database";
-DATABASE_PORT = 3316;
+DATABASE_USER = "root";
+DATABASE_PASS = "";
+DATABASE_NAME = "fw_data";
+DATABASE_PORT = 3306;

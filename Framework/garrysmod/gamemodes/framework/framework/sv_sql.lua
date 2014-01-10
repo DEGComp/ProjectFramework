@@ -4,7 +4,7 @@
 [[--  Server-side code for MySQL data storage.  ]]
 [[----------------------------------------------]]
 */
-
+include("framework/config/sv_config.lua")
 //Implement MySQLOO functionality.
 require("mysqloo");
 
