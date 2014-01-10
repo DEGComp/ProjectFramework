@@ -8,7 +8,7 @@ include("framework/config/sv_config.lua")
 //Implement MySQLOO functionality.
 require("mysqloo");
 
-DATABASE = mysqloo.connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASS, DATABASE_NAME, DATABASE_PORT);
+local DATABASE = mysqloo.connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASS, DATABASE_NAME, DATABASE_PORT);
 DATABASE:connect();
 
 //A simple, re-useable function for checking
@@ -27,14 +27,17 @@ function DATABASE:onConnected()
 	MsgN("[Framework] MySQLOO database version " .. mysqloo.MYSQL_INFO);
 	MsgN("[Framework] Running MySQLOO version " .. mysqloo.VERSION);
 	
-	local PlayerTable = database:query("CREATE TABLE IF NOT EXISTS Players(ID INT NOT NULL AUTO_INCREMENT, SteamName TEXT, SteamID TEXT, IP TEXT, UserLevel INT, Whitelisted BOOL, PRIMARY KEY (ID));");
+	local PlayerTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Players(ID INT NOT NULL AUTO_INCREMENT, SteamName TEXT, SteamID TEXT, IP TEXT, UserLevel INT, Whitelisted BOOL, PRIMARY KEY (ID));");
 	PlayerTable:start();
 	
-	local CharacterTable = database:query("CREATE TABLE IF NOT EXISTS Characters(ID INT NOT NULL AUTO_INCREMENT, Name TEXT, Faction TEXT, Inventory TEXT, Flags TEXT, PRIMARY KEY (ID));");
+	local CharacterTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Characters(ID INT NOT NULL AUTO_INCREMENT, Name TEXT, Faction TEXT, Inventory TEXT, Flags TEXT, PRIMARY KEY (ID));");
 	CharacterTable:start();
+
+	local ItemTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Items(ID INT NOT NULL AUTO_INCREMENT, Name TEXT, Inventory TEXT);");
+	ItemTable:start();
 	
 	function PlayerTable:onSuccess(data)
-		MsgN("[Framework]: Player table verification successful, ready to recieve data.");
+		MsgN("[Framework]: Player table verification successful, ready to receive data.");
 	end
 	
 	function PlayerTable:onError(err, sql)
@@ -44,13 +47,23 @@ function DATABASE:onConnected()
 	end
 	
 	function CharacterTable:onSuccess(data)
-		MsgN("[Framework]: Character table verification successful, ready to recieve data.");
+		MsgN("[Framework]: Character table verification successful, ready to receive data.");
 	end
 	
 	function CharacterTable:onError(err, sql)
 		ErrorNoHalt("[Framework] CRITICAL ERROR (3): Failed to verify table!\n");
 		ErrorNoHalt("[Framework] CRITICAL ERROR (3): " .. err .. "\n");
 		ErrorNoHalt("[Framework] CRITICAL ERROR (3): " .. sql .. "\n");
+	end
+	
+	function ItemTable:onSuccess(data)
+		MsgN("[Framework]: Item table verification successful, ready to receive data.");
+	end
+	
+	function ItemTable:onError(err, sql)
+		ErrorNoHalt("[Framework] CRITICAL ERROR (2): Failed to verify table!\n");
+		ErrorNoHalt("[Framework] CRITICAL ERROR (2): " .. err .. "\n");
+		ErrorNoHalt("[Framework] CRITICAL ERROR (2): " .. sql .. "\n");
 	end
 end
 
@@ -67,12 +80,12 @@ function FirstJoin(ply, steamID, uID)
 		return;
 	end
 	
-	local PlayerCheck = database:query("SELECT * FROM Players WHERE SteamID = '" .. steamID .. "';");
+	local PlayerCheck = DATABASE:query("SELECT * FROM Players WHERE SteamID = '" .. steamID .. "';");
 	PlayerCheck:start();
 	
 	function PlayerCheck:onSuccess(data)
 		if IsEmpty(data) then
-			local PlayerCreate = database:query("INSERT INTO `Players` (SteamName, SteamID, IP, UserLevel, Whitelisted) VALUES ('" .. ply:Name() .. "', '" .. steamID .. "', '" .. ply:IPAddress() .. "', 1, 0);");
+			local PlayerCreate = DATABASE:query("INSERT INTO `Players` (SteamName, SteamID, IP, UserLevel, Whitelisted) VALUES ('" .. ply:Name() .. "', '" .. steamID .. "', '" .. ply:IPAddress() .. "', 1, 0);");
 			PlayerCreate:start();
 			
 			function PlayerCreate:onSuccess(data)
