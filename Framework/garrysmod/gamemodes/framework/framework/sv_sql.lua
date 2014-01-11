@@ -24,7 +24,7 @@ end
 //This runs after the database has been connected.
 function DATABASE:onConnected()
 	MsgN("[Framework] Connected to database!");
-	MsgN("[Framework] MySQLOO database version " .. mysqloo.MYSQL_INFO);
+	MsgN("[Framework] MySQL database version " .. mysqloo.MYSQL_INFO);
 	MsgN("[Framework] Running MySQLOO version " .. mysqloo.VERSION);
 	
 	local PlayerTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Players(ID INT NOT NULL AUTO_INCREMENT, SteamName TEXT, SteamID TEXT, IP TEXT, UserLevel INT, Whitelisted BOOL, PRIMARY KEY (ID));");
