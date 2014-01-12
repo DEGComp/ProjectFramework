@@ -84,16 +84,29 @@ function FirstJoin(ply, steamID, uID)
 	PlayerCheck:start();
 	
 	function PlayerCheck:onSuccess(data)
-		if IsEmpty(data) then
-			local PlayerCreate = DATABASE:query("INSERT INTO `Players` (SteamName, SteamID, IP, UserLevel, Whitelisted) VALUES ('" .. ply:Name() .. "', '" .. steamID .. "', '" .. ply:IPAddress() .. "', 1, 0);");
-			PlayerCreate:start();
-			
-			function PlayerCreate:onSuccess(data)
-				MsgN("[Framework]: Data stored for new player " .. ply:Name() .. ".");
+		if WHITELIST_ENABLED then
+			if IsEmpty(data) and !table.HasValue(WHITELISTS, data[1]["SteamID"] then
+				ply:Kick("You are not allowed to join this server, contact the owner. Sorry!");
+				return;
+			else
+				local PlayerCreate = DATABASE:query("INSERT INTO `Players` (SteamName, SteamID, IP, UserLevel, Whitelisted) VALUES ('" .. ply:Name() .. "', '" .. steamID .. "', '" .. ply:IPAddress() .. "', 1, 0);");
+				PlayerCreate:start();
+				
+				function PlayerCreate:onSuccess(data)
+					MsgN("[Framework]: Data stored for new player " .. ply:Name() .. ".");
+				end
 			end
 		else
-			MsgN("[Framework]: Data found for " .. ply:Name() .. ", resuming...");
-		end
+			if IsEmpty(data) then
+				local PlayerCreate = DATABASE:query("INSERT INTO `Players` (SteamName, SteamID, IP, UserLevel, Whitelisted) VALUES ('" .. ply:Name() .. "', '" .. steamID .. "', '" .. ply:IPAddress() .. "', 1, 0);");
+				PlayerCreate:start();
+				
+				function PlayerCreate:onSuccess(data)
+					MsgN("[Framework]: Data stored for new player " .. ply:Name() .. ".");
+				end
+			else
+				MsgN("[Framework]: Data found for " .. ply:Name() .. ", resuming...");
+			end
 	end
 	
 	function PlayerCheck:onError(err, sql)
