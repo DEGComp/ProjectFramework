@@ -85,7 +85,7 @@ function FirstJoin(ply, steamID, uID)
 	
 	function PlayerCheck:onSuccess(data)
 		if CCore.Config.WHITELIST_ENABLED then
-			if IsEmpty(data) and !table.HasValue(CCore.Config.WHITELISTS, data[1]["SteamID"] then
+			if IsEmpty(data) and !table.HasValue(CCore.Config.WHITELISTS, data[1]["SteamID"]) then
 				ply:Kick("You are not allowed to join this server, contact the owner. Sorry!");
 				return;
 			else
