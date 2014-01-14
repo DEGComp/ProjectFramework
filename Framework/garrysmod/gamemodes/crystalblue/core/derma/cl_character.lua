@@ -1,3 +1,5 @@
+local CCore = CCore;
+
 function cbCharMenu(ply)
 	local base = vgui.Create("DFrame")
 	local close = vgui.Create("DButton")

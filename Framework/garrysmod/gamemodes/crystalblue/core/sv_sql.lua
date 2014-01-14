@@ -1,10 +1,10 @@
 /*
 [[----------------------------------------------]]
-[[--  Framework SQL  ---------------------------]]
+[[--  Core SQL  --------------------------------]]
 [[--  Server-side code for MySQL data storage.  ]]
 [[----------------------------------------------]]
 */
-include("framework/config/sv_config.lua")
+
 //Implement MySQLOO functionality.
 require("mysqloo");
 
@@ -23,9 +23,9 @@ end
 
 //This runs after the database has been connected.
 function DATABASE:onConnected()
-	MsgN("[Framework] Connected to database!");
-	MsgN("[Framework] MySQL database version " .. mysqloo.MYSQL_INFO);
-	MsgN("[Framework] Running MySQLOO version " .. mysqloo.VERSION);
+	MsgN("[CCore] Connected to database!");
+	MsgN("[CCore] MySQL database version " .. mysqloo.MYSQL_INFO);
+	MsgN("[CCore] Running MySQLOO version " .. mysqloo.VERSION);
 	
 	local PlayerTable = DATABASE:query("CREATE TABLE IF NOT EXISTS Players(ID INT NOT NULL AUTO_INCREMENT, SteamName TEXT, SteamID TEXT, IP TEXT, UserLevel INT, Whitelisted BOOL, PRIMARY KEY (ID));");
 	PlayerTable:start();
@@ -37,41 +37,41 @@ function DATABASE:onConnected()
 	ItemTable:start();
 	
 	function PlayerTable:onSuccess(data)
-		MsgN("[Framework]: Player table verification successful, ready to receive data.");
+		MsgN("[CCore]: Player table verification successful, ready to receive data.");
 	end
 	
 	function PlayerTable:onError(err, sql)
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (2): Failed to verify table!\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (2): " .. err .. "\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (2): " .. sql .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (2): Failed to verify table!\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (2): " .. err .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (2): " .. sql .. "\n");
 	end
 	
 	function CharacterTable:onSuccess(data)
-		MsgN("[Framework]: Character table verification successful, ready to receive data.");
+		MsgN("[CCore]: Character table verification successful, ready to receive data.");
 	end
 	
 	function CharacterTable:onError(err, sql)
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (3): Failed to verify table!\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (3): " .. err .. "\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (3): " .. sql .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (3): Failed to verify table!\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (3): " .. err .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (3): " .. sql .. "\n");
 	end
 	
 	function ItemTable:onSuccess(data)
-		MsgN("[Framework]: Item table verification successful, ready to receive data.");
+		MsgN("[CCore]: Item table verification successful, ready to receive data.");
 	end
 	
 	function ItemTable:onError(err, sql)
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (4): Failed to verify table!\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (4): " .. err .. "\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (4): " .. sql .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (4): Failed to verify table!\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (4): " .. err .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (4): " .. sql .. "\n");
 	end
 end
 
 //This runs if there's a problem with the entered
 //config data.
 function DATABASE:onConnectionFailed(err)
-	ErrorNoHalt("[Framework]: CRITICAL ERROR (1): Failed to connect to database!\n");
-	ErrorNoHalt("[Framework]: CRITICAL ERROR (1): " .. err .. "\n");
+	ErrorNoHalt("[CCore]: CRITICAL ERROR (1): Failed to connect to database!\n");
+	ErrorNoHalt("[CCore]: CRITICAL ERROR (1): " .. err .. "\n");
 end
 
 //This runs every time 
@@ -84,8 +84,8 @@ function FirstJoin(ply, steamID, uID)
 	PlayerCheck:start();
 	
 	function PlayerCheck:onSuccess(data)
-		if WHITELIST_ENABLED then
-			if IsEmpty(data) and !table.HasValue(WHITELISTS, data[1]["SteamID"] then
+		if CCore.Config.WHITELIST_ENABLED then
+			if IsEmpty(data) and !table.HasValue(CCore.Config.WHITELISTS, data[1]["SteamID"] then
 				ply:Kick("You are not allowed to join this server, contact the owner. Sorry!");
 				return;
 			else
@@ -93,7 +93,7 @@ function FirstJoin(ply, steamID, uID)
 				PlayerCreate:start();
 				
 				function PlayerCreate:onSuccess(data)
-					MsgN("[Framework]: Data stored for new player " .. ply:Name() .. ".");
+					MsgN("[CCore]: Data stored for new player " .. ply:Name() .. ".");
 				end
 			end
 		else
@@ -102,17 +102,17 @@ function FirstJoin(ply, steamID, uID)
 				PlayerCreate:start();
 				
 				function PlayerCreate:onSuccess(data)
-					MsgN("[Framework]: Data stored for new player " .. ply:Name() .. ".");
+					MsgN("[CCore]: Data stored for new player " .. ply:Name() .. ".");
 				end
 			else
-				MsgN("[Framework]: Data found for " .. ply:Name() .. ", resuming...");
+				MsgN("[CCore]: Data found for " .. ply:Name() .. ", resuming...");
 			end
 	end
 	
 	function PlayerCheck:onError(err, sql)
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (5): Failed to verify playerdata!\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (5): " .. err .. "\n");
-		ErrorNoHalt("[Framework]: CRITICAL ERROR (5): " .. sql .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (5): Failed to verify playerdata!\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (5): " .. err .. "\n");
+		ErrorNoHalt("[CCore]: CRITICAL ERROR (5): " .. sql .. "\n");
 	end
 end
 hook.Add("PlayerAuthed", "FirstJoin", FirstJoin);
