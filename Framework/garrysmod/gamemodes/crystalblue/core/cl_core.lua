@@ -34,7 +34,7 @@ function CCore:HUDShouldDraw(name)
 	end
 end
 
-function CCore:OpenDerma(ply)
+function OpenDerma(ply)
 	local base = vgui.Create("DFrame")
 	local inima = vgui.Create("DImage", base)
 	local chars = vgui.Create("DButton")
@@ -96,7 +96,7 @@ function CCore:OpenDerma(ply)
 	end
 	
 	function close:Paint(w, h)
-	draw.RoundedBox(4, 0, 0, w, h, Color(0, 0, 0, 30))
+		draw.RoundedBox(4, 0, 0, w, h, Color(0, 0, 0, 30))
 	end
 end
-usermessage.Hook("CCore_Open_Menu", CCore:OpenDerma)
+usermessage.Hook("CCore_Open_Menu", OpenDerma)
