@@ -8,7 +8,7 @@
 //Implement MySQLOO functionality.
 require("mysqloo");
 
-local DATABASE = mysqloo.connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASS, DATABASE_NAME, DATABASE_PORT);
+local DATABASE = mysqloo.connect(CCore.Config.DATABASE_HOST, CCore.Config.DATABASE_USER, CCore.Config.DATABASE_PASS, CCore.Config.DATABASE_NAME, CCore.Config.DATABASE_PORT);
 DATABASE:connect();
 
 //A simple, re-useable function for checking
