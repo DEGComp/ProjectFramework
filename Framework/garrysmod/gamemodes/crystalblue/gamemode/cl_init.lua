@@ -5,5 +5,5 @@
 [[----------------------------------------------]]
 */
 
-include("core/sh_core.lua")
-include("core/cl_core.lua")
+include("crystalblue/core/sh_core.lua")
+include("crystalblue/core/cl_core.lua")

@@ -5,8 +5,8 @@
 [[----------------------------------------------]]
 */
 
-include("core/derma/cl_character.lua")
-include("core/derma/cl_directory.lua")
+include("crystalblue/core/derma/cl_character.lua")
+include("crystalblue/core/derma/cl_directory.lua")
 
 local CCore = CCore;
 local vgui = vgui;
