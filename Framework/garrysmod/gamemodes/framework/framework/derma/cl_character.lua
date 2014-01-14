@@ -1,4 +1,4 @@
-function fwCharMenu(ply)
+function cbCharMenu(ply)
 	local base = vgui.Create("DFrame")
 	local close = vgui.Create("DButton")
 	local model = vgui.Create("DModelPanel")

@@ -19,7 +19,7 @@ function GM:HUDShouldDraw(name)
 	end
 end
 
-function fwMenuDerma(ply)
+function cbMenuDerma(ply)
 	local base = vgui.Create("DFrame")
 	local inima = vgui.Create("DImage", base)
 	local chars = vgui.Create("DButton")
@@ -53,7 +53,7 @@ function fwMenuDerma(ply)
 	chars.DoClick = function()
 		chat.AddText(Color(100, 60, 40), "Char menu will now appear, maybe?")
 		base:Close()
-		fwCharMenu(ply)
+		cbCharMenu(ply)
 	end
 
 	directory:SetParent(base)
@@ -61,7 +61,7 @@ function fwMenuDerma(ply)
 	directory:SetSize(90, 30)
 	directory:SetPos(200, 250)
 	directory.DoClick = function()
-		fwDirectory()
+		cbDirectory()
 	end
 
 	function base:Paint(w, h)
@@ -84,4 +84,4 @@ function fwMenuDerma(ply)
 	draw.RoundedBox(4, 0, 0, w, h, Color(0, 0, 0, 30))
 	end
 end
-usermessage.Hook("fw_menu_open", fwMenuDerma)
+usermessage.Hook("cb_menu_open", cbMenuDerma)

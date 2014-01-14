@@ -1,4 +1,4 @@
-function fwDirectory(page)
+function cbDirectory(page)
 	if(page==nil)then
 		local commands = {}
 		local dbase = vgui.Create("DFrame")
@@ -23,7 +23,7 @@ function fwDirectory(page)
 		info:SetSize(150, 50)
 		info.DoClick = function()
 			dbase:Close()
-			fwDirectory(1)
+			cbDirectory(1)
 		end
 		
 		close:SetPos(80, 593)
@@ -69,7 +69,7 @@ function fwDirectory(page)
 		info:SetSize(150, 50)
 		info.DoClick = function()
 			dbase:Close()
-			fwDirectory(1)
+			cbDirectory(1)
 		end
 		
 		close:SetPos(80, 593)
