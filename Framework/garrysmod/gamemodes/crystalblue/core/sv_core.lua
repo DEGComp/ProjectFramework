@@ -5,11 +5,12 @@
 [[----------------------------------------------]]
 */
 
+DeriveGamemode("sandbox");
+
 AddCSLuaFile("crystalblue/core/derma/cl_character.lua")
 AddCSLuaFile("crystalblue/core/derma/cl_directory.lua")
 
 include("crystalblue/config/sv_config.lua");
-include("crystalblue/core/sv_config.lua");
 
 local CCore = CCore;
 local umsg = umsg;

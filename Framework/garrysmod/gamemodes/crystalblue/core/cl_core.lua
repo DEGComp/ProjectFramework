@@ -5,6 +5,8 @@
 [[----------------------------------------------]]
 */
 
+DeriveGamemode("sandbox");
+
 include("crystalblue/core/derma/cl_character.lua")
 include("crystalblue/core/derma/cl_directory.lua")
 

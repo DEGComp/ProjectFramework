@@ -5,6 +5,7 @@
 */
 
 local CCore = CCore;
+CCore.Config = {};
 
 CCore.Config.DATABASE_HOST = "localhost";
 CCore.Config.DATABASE_USER = "root";
