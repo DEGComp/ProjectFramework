@@ -9,6 +9,12 @@ include("core/derma/cl_character.lua")
 include("core/derma/cl_directory.lua")
 
 local CCore = CCore;
+local vgui = vgui;
+local draw = draw;
+local surface = surface;
+local chat = chat;
+local umsg = umsg;
+local usermessage = usermessage;
 
 function CCore:Initialize()
 	MsgN("[CCore] Initialized client-side!");

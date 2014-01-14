@@ -12,6 +12,7 @@ include("config/sv_config.lua");
 include("core/sv_config.lua");
 
 local CCore = CCore;
+local umsg = umsg;
 
 function CCore:Initialize()
 	MsgN("[CCore] Initialized server-side!");
@@ -20,6 +21,6 @@ function CCore:Initialize()
 end
 
 function CCore:ShowSpare2(ply)
-	umsg.Start("CCore_Open_Menu", ply)
-	umsg.End()
+	umsg.Start("CCore_Open_Menu", ply);
+	umsg.End();
 end
