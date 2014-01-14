@@ -107,6 +107,7 @@ function FirstJoin(ply, steamID, uID)
 			else
 				MsgN("[CCore]: Data found for " .. ply:Name() .. ", resuming...");
 			end
+		end
 	end
 	
 	function PlayerCheck:onError(err, sql)
