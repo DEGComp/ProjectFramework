@@ -1,0 +1,11 @@
+"crystalblue"
+{
+	"base"		"sandbox"
+	"title"		"Crystal Blue - Framework"
+	"maps"		"^rp_"
+	"menusystem"	"1"
+	"settings"
+	{
+
+	}
+}
