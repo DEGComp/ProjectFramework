@@ -23,6 +23,11 @@ end
 
 function CCore:PlayerInitalSpawn(ply)
 	ply:SetTeam(TEAM_SPECTATOR);
+	ply:KillSilent();
+	
+	timer.Simple(10, function()
+		ply:Spawn();
+	end)
 end
 
 function CCore:ShowSpare2(ply)
