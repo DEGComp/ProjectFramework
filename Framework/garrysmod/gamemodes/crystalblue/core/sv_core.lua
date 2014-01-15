@@ -21,6 +21,10 @@ function CCore:Initialize()
 	self.BaseClass:Initialize();
 end
 
+function CCore:PlayerInitalSpawn(ply)
+	
+end
+
 function CCore:ShowSpare2(ply)
 	umsg.Start("CCore_Open_Menu", ply);
 	umsg.End();
