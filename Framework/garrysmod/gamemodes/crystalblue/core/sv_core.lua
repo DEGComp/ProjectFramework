@@ -22,7 +22,7 @@ function CCore:Initialize()
 end
 
 function CCore:PlayerInitalSpawn(ply)
-	
+	ply:SetTeam(TEAM_SPECTATOR);
 end
 
 function CCore:ShowSpare2(ply)
