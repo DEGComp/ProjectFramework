@@ -13,21 +13,34 @@ AddCSLuaFile("crystalblue/core/derma/cl_directory.lua")
 include("crystalblue/config/sv_config.lua");
 
 local CCore = CCore;
+local Error = Error;
+local MsgN = MsgN;
 local umsg = umsg;
 
 function CCore:Initialize()
-	MsgN("[CCore] Initialized server-side!");
-	
+	if game.SinglePlayer() then
+		Error("[Mastermind] CRITICAL ERROR (1): " .. self.Name .. " is not made for singleplayer! Please start " .. self.Name .. " on an online server.");
+	end
+
 	self.BaseClass:Initialize();
+	
+	MsgN("[CCore] Initialized server-side!");
+	math.randomseed(os.time());
 end
 
 function CCore:PlayerInitalSpawn(ply)
-	ply:SetTeam(TEAM_SPECTATOR);
-	ply:KillSilent();
+	ply:SetLoading(true);
 	
-	timer.Simple(10, function()
-		ply:Spawn();
-	end)
+	umsg.Start("CCore_Start_Intro", ply);
+	umsg.End();
+end
+
+function CCore:PlayerSpawn(ply)
+	if ply:IsLoading() then
+		GAMEMODE:PlayerSpawnAsSpectator(ply);
+		ply:RemoveAllItems();
+		ply:SetLoading(false);
+	end
 end
 
 function CCore:ShowSpare2(ply)

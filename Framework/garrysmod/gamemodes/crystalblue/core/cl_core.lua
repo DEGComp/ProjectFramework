@@ -11,11 +11,11 @@ include("crystalblue/core/derma/cl_character.lua")
 include("crystalblue/core/derma/cl_directory.lua")
 
 local CCore = CCore;
-local vgui = vgui;
-local draw = draw;
-local surface = surface;
 local chat = chat;
+local draw = draw;
 local umsg = umsg;
+local vgui = vgui;
+local surface = surface;
 local usermessage = usermessage;
 
 function CCore:Initialize()
@@ -100,3 +100,8 @@ function OpenDerma(ply)
 	end
 end
 usermessage.Hook("CCore_Open_Menu", OpenDerma)
+
+function StartInto()
+	//Make the intro here.
+end
+usermessage.Hook("CCore_Start_Intro", StartIntro);
